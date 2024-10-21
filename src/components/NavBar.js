@@ -31,15 +31,26 @@ export default function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav nav-style">
-            <li>
-              <a href="#about">About Me</a>
+          <ul className="navbar-nav nav-style fs-1">
+            <li className="nav-item ">
+              <a className="nav-link" href="#about">
+                About Me
+              </a>
             </li>
-            <li>
-              <a href="#projects">Projects</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#skills">
+                Skills
+              </a>
             </li>
-            <li>
-              <a href="#contact">Contact</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#projects">
+                Projects
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#contact">
+                Contact
+              </a>
             </li>
           </ul>
         </div>
