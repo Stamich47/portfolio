@@ -15,7 +15,7 @@ export default function NavBar() {
   return (
     <nav className="navbar">
       <div className="container-fluid px-3 py-3" style={navbarStyle}>
-        <a className="navbar-brand" href="#home">
+        <a className="navbar-brand" href="#about">
           <img src={logo} alt="logo" className="logo" />
         </a>
         <button

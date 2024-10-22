@@ -1,6 +1,6 @@
 export default function ProjectCard({ project }) {
   return (
-    <div key={project.id} className="project-card my-5">
+    <div key={project.id} className="project-card my-3">
       <img
         src={project.image}
         alt={project.name}

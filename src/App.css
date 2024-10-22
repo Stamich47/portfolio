@@ -43,9 +43,10 @@
 
 #about {
   height: 100vh;
+  border-bottom: #000 1px solid;
 }
 
-#skills {
+#contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,6 +59,10 @@
 
 /* Projects Page & Card */
 
+#projects {
+  border-bottom: #000 1px solid;
+}
+
 .projects-container {
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +70,8 @@
 }
 
 .project-card {
-  width: 400px; /* Fixed width for the card */
+  width: 33%; /* Fixed width for the card */
+  min-width: 300px; /* Minimum width for responsiveness */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensure the button is at the bottom */
@@ -123,4 +129,60 @@
 .project-card-buttons {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* Skills Section */
+
+#skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border-bottom: #000 1px solid;
+}
+
+#skill-card {
+  width: 200px;
+  height: 100px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  padding: 8px 16px;
+}
+
+#skills h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#skill-card h3 {
+  margin: auto;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #000000;
 }
