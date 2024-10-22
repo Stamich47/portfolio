@@ -57,7 +57,7 @@ export default function Projects() {
 
   return (
     <div id="projects" className="projects my-5">
-      <h2 className="my-5">Projects</h2>
+      <h2 className="my-5 text-center">Projects</h2>
       <div className="projects-container">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />

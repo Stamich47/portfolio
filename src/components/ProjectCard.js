@@ -23,7 +23,7 @@ export default function ProjectCard({ project }) {
           rel="noreferrer"
           className="project-card-link"
         >
-          Source Code
+          Source
         </a>
       </div>
     </div>
