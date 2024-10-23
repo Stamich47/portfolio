@@ -9,11 +9,21 @@ import {
 } from "react-icons/io5";
 import { FaGitAlt } from "react-icons/fa6";
 import { RiNextjsLine } from "react-icons/ri";
+import { SiTypescript } from "react-icons/si";
 
 const skills = [
   {
     name: "JavaScript",
     icon: <IoLogoJavascript />,
+  },
+  { name: "TypeScript", icon: <SiTypescript /> },
+  {
+    name: "CSS",
+    icon: <IoLogoCss3 />,
+  },
+  {
+    name: "HTML5",
+    icon: <IoLogoHtml5 />,
   },
   {
     name: "React",
@@ -23,14 +33,7 @@ const skills = [
     name: "Node.js",
     icon: <IoLogoNodejs />,
   },
-  {
-    name: "CSS",
-    icon: <IoLogoCss3 />,
-  },
-  {
-    name: "HTML5",
-    icon: <IoLogoHtml5 />,
-  },
+
   {
     name: "Git",
     icon: <FaGitAlt />,
@@ -44,9 +47,9 @@ const skills = [
 
 export default function Skills() {
   return (
-    <IconContext.Provider value={{ size: "3em" }}>
-      <section id="skills">
-        <h2>Skills</h2>
+    <IconContext.Provider value={{ size: "2em" }}>
+      <section id="skills" className="py-5">
+        <h2 className="pb-5">Skills</h2>
         <div className="skills-container">
           {skills.map((skill, index) => (
             <SkillsCard key={index} skill={skill} />

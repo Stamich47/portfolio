@@ -43,24 +43,12 @@
 
 #about {
   height: 100vh;
-  border-bottom: #000 1px solid;
-}
-
-#contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  min-height: 600px;
-  overflow-y: auto;
-  border-bottom: #000 1px solid;
 }
 
 /* Projects Page & Card */
 
 #projects {
-  border-bottom: #000 1px solid;
+  border-top: 1px solid #ddd;
 }
 
 .projects-container {
@@ -70,16 +58,14 @@
 }
 
 .project-card {
-  width: 33%; /* Fixed width for the card */
-  min-width: 300px; /* Minimum width for responsiveness */
+  width: 33%;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensure the button is at the bottom */
+  justify-content: space-between;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  margin: 16px;
 
   text-align: center;
   z-index: 1;
@@ -97,19 +83,6 @@
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 16px;
-}
-
-.project-card-title {
-  font-size: 1.5em;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.project-card-description {
-  font-size: 1em;
-  color: #666;
-  margin-bottom: 16px;
-  flex-grow: 1;
 }
 
 .project-card-link {
@@ -138,17 +111,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  border-bottom: #000 1px solid;
+  border-top: 1px solid #ddd;
+  height: 75vh;
+  max-width: 1400px;
 }
 
 #skill-card {
   width: 33%;
   min-width: 200px;
   max-width: 250px;
-  background-color: #f8f9fa;
   border: 1px solid #ddd;
-  border-radius: 24px;
   padding: 8px 16px;
 }
 
@@ -163,7 +135,7 @@
 
 .skills-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -172,8 +144,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  background-color: #f8f9fa;
+  height: 200px;
   border-top: 1px solid #ddd;
 }
 
@@ -186,4 +157,18 @@
 .footer a {
   text-decoration: none;
   color: #000000;
+}
+
+@media (max-width: 768px) {
+  #skill-card {
+    width: 30%;
+  }
+
+  #skill-card h3 {
+    font-size: 1.2em;
+  }
+
+  .skill-icon {
+    width: 20px;
+  }
 }
