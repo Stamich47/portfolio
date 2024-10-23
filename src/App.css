@@ -31,12 +31,26 @@
   background-color: white;
 }
 
+.list-icon,
+.close-icon {
+  font-size: 1.5em;
+  color: #000;
+}
+
 .logo:hover,
 .navbar-toggler:hover {
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-nav h1,
+.contact-nav h1 {
+  font-size: 1.5em;
+  margin: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #313131;
 }
 
 /* About Section */
@@ -112,7 +126,7 @@
   justify-content: center;
   align-items: center;
   border-top: 1px solid #ddd;
-  height: 75vh;
+  min-height: 75vh;
   max-width: 1400px;
 }
 
@@ -171,4 +185,17 @@
   .skill-icon {
     width: 20px;
   }
+}
+
+.navbar-brand {
+  border-radius: none;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.navbar-brand:hover {
+  background-color: transparent;
+  box-shadow: none;
+  scale: 1;
 }

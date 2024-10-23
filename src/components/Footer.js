@@ -10,11 +10,6 @@ export default function Footer() {
             <a href="mailto:mjstanford615@gmail.com">Email</a>
           </li>
           <li className="list-inline-item">
-            <a href="http://www.linkedin.com" target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </li>
-          <li className="list-inline-item">
             <a
               href="https://github.com/Stamich47"
               target="_blank"
