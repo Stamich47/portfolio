@@ -68,7 +68,6 @@ export default function NavBar() {
             className="navbar-nav nav-style fs-1 section-nav "
             style={pageLinkStyle}
           >
-            <h1 className="pb-4">Page Links</h1>
             <li className="nav-item">
               <a className="nav-link" href="#about">
                 About Me
