@@ -5,7 +5,6 @@ export default function NavBar() {
   const [background, setBackground] = useState(false);
   const [togglePageLinks, setTogglePageLinks] = useState(true);
   const [toggleContactLinks, setToggleContactLinks] = useState(false);
-  const [toggleicon, setToggleIcon] = useState(false);
 
   const handleButtonClick = () => {
     setBackground(!background);
