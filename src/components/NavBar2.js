@@ -16,31 +16,46 @@ export default function NavBar2() {
 
   const navBarStyle = {
     backgroundColor: activeNav ? "rgba(181,230,235, 0.92)" : "transparent",
-    zIndex: 100,
+    zIndex: activeNav ? "1000" : "0",
   };
 
   return (
     <nav className="navbar" style={navBarStyle}>
-      <div className="container-fluid">
+      <div className="container-fluid p-3">
         <div className="navbar-brand" onClick={openContactLinks}>
-          <img
-            src={logo}
-            alt="contact logo"
-            width="50"
-            height="50"
-            className="border rounded-circle"
-          />
+          {activeNav === "contactLinks" ? (
+            <div
+              className="contact-icon border rounded-circle d-flex justify-content-center align-items-center bg-white"
+              style={{ width: "50px", height: "50px" }}
+            >
+              <i className="bi bi-x close-icon"></i>
+            </div>
+          ) : (
+            <img
+              src={logo}
+              alt="contact logo"
+              width="50"
+              height="50"
+              className="border rounded-circle logo"
+            />
+          )}
         </div>
         <button
           className="navbar-toggler"
           type="button"
           onClick={openPageLinks}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span>
+            {activeNav === "pageLinks" ? (
+              <i className="bi bi-x close-icon custom-icon-size"></i>
+            ) : (
+              <i className="bi bi-list list-icon custom-icon-size"></i>
+            )}
+          </span>
         </button>
         <div className="navbar-collapse" id="navbarNav">
           {activeNav === "pageLinks" && (
-            <ul className="navbar-nav nav-page">
+            <ul className="navbar-nav nav-page nav-style fs-1">
               <li className="nav-item">
                 <a className="nav-link" href="#about">
                   About Me
@@ -64,7 +79,7 @@ export default function NavBar2() {
             </ul>
           )}
           {activeNav === "contactLinks" && (
-            <ul className="navbar-nav nav-contact">
+            <ul className="navbar-nav nav-contact nav-style fs-1">
               <li className="nav-item">
                 <a className="nav-link" href="#about">
                   Email
