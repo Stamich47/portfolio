@@ -199,3 +199,7 @@
   box-shadow: none;
   scale: 1;
 }
+
+.navbar {
+  z-index: 0;
+}

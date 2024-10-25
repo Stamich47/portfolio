@@ -2,37 +2,35 @@ import logo from "../images/logo.png";
 import { useState } from "react";
 
 export default function NavBar() {
-  const [background, setBackground] = useState(false);
-  const [togglePageLinks, setTogglePageLinks] = useState(true);
-  const [toggleContactLinks, setToggleContactLinks] = useState(false);
+  const [activeNav, setActiveNav] = useState(null);
 
   const handleButtonClick = () => {
-    setBackground(!background);
-    setTogglePageLinks(true);
-    setToggleContactLinks(false);
+    setActiveNav((prev) => (prev === "pageLinks" ? null : "pageLinks"));
   };
 
   const handleBrandClick = () => {
-    setBackground(!background);
-    setTogglePageLinks(false);
-    setToggleContactLinks(true);
+    setActiveNav((prev) => (prev === "contactLinks" ? null : "contactLinks"));
   };
 
-  const pageLinkStyle = {
-    display: togglePageLinks ? "flex" : "none",
+  const handleCloseNav = () => {
+    setActiveNav(null);
   };
 
   const navbarStyle = {
-    backgroundColor: background ? "rgba(181,230,235, 0.92)" : "transparent",
+    backgroundColor: activeNav ? "rgba(181,230,235, 0.92)" : "transparent",
+  };
+
+  const pageLinkStyle = {
+    display: activeNav === "pageLinks" ? "flex" : "none",
   };
 
   const contactLinkStyle = {
-    display: toggleContactLinks ? "flex" : "none",
+    display: activeNav === "contactLinks" ? "flex" : "none",
   };
 
   return (
-    <nav className="navbar">
-      <div className="container-fluid px-3 py-3" style={navbarStyle}>
+    <nav className="navbar" style={navbarStyle}>
+      <div className="container-fluid px-3 py-3">
         <a
           onClick={handleBrandClick}
           className="navbar-brand navbar-toggler"
@@ -56,16 +54,20 @@ export default function NavBar() {
           aria-label="Toggle navigation"
         >
           <span>
-            {background ? (
+            {activeNav ? (
               <i className="bi bi-x close-icon custom-icon-size"></i>
             ) : (
               <i className="bi bi-list list-icon custom-icon-size"></i>
             )}
           </span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className={`collapse navbar-collapse ${activeNav ? "show" : ""}`}
+          id="navbarSupportedContent"
+        >
           <ul
-            className="navbar-nav nav-style fs-1 section-nav "
+            onClick={handleCloseNav}
+            className="navbar-nav nav-style fs-1 section-nav"
             style={pageLinkStyle}
           >
             <li className="nav-item">
