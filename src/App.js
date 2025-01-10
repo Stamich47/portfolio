@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="container">
+    <div className="bg-light">
       <AboutMe />
       {/* <NavBar /> */}
       <NavBar2 />

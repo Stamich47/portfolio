@@ -12,6 +12,15 @@ export default function Projects() {
       source: "https://github.com/Stamich47/WeatherLens",
     },
     {
+      id: 7,
+      name: "BiteSized - Recipe App",
+      description:
+        "A recipe app that allows users to search for recipes and save them.",
+      image: require("../images/BiteSizedNew_cover.png"),
+      location: "https://bitesizedapp.netlify.app/",
+      source: "https://github.com/Stamich47/recipe-app",
+    },
+    {
       id: 2,
       name: "BookBuddy",
       description:
@@ -39,12 +48,12 @@ export default function Projects() {
     },
     {
       id: 5,
-      name: "Squirrel Stuff, Inc.",
+      name: "Client Portfolio Site",
       description:
-        "A simple site for a fictional company that sells squirrel stuff.",
-      image: require("../images/squirrel.png"),
-      location: "https://squirrelstuff.netlify.app/",
-      source: "https://github.com/Stamich47/squirrel-site",
+        "A sample portfolio site for a client that showcases their work and skills.",
+      image: require("../images/brand_logo.png"),
+      location: "https://sample-portfolio3.netlify.app/",
+      source: "https://github.com/Stamich47/client-portfolio",
     },
     {
       id: 6,
