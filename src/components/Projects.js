@@ -67,7 +67,10 @@ export default function Projects({ isDarkMode }) {
   ];
 
   return (
-    <div id="projects" className="projects py-5">
+    <div
+      id="projects"
+      className="projects py-5 d-flex flex-column align-items-center"
+    >
       <h2 className="pb-5 text-center">Projects</h2>
       <div className="projects-container">
         {projects.map((project) => (
