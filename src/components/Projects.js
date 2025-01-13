@@ -1,6 +1,6 @@
 import ProjectCard from "./ProjectCard";
 
-export default function Projects() {
+export default function Projects({ isDarkMode }) {
   const projects = [
     {
       id: 1,
@@ -57,7 +57,7 @@ export default function Projects() {
     },
     {
       id: 6,
-      name: "Rock, Paper, Scissors Game",
+      name: "Rock, Paper, Scissors",
       description:
         "A rock, paper, scissors game that allows users to play against the CPU.",
       image: require("../images/rps.png"),
@@ -71,7 +71,11 @@ export default function Projects() {
       <h2 className="pb-5 text-center">Projects</h2>
       <div className="projects-container">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard
+            isDarkMode={isDarkMode}
+            key={project.id}
+            project={project}
+          />
         ))}
       </div>
     </div>

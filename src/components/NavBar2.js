@@ -1,7 +1,8 @@
 import logo from "../images/logo.png";
 import { useState } from "react";
+import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 
-export default function NavBar2() {
+export default function NavBar2({ isDarkMode, toggleDarkMode }) {
   const [activeNav, setActiveNav] = useState(null);
 
   const openPageLinks = (e) => {
@@ -21,7 +22,7 @@ export default function NavBar2() {
 
   return (
     <nav className="navbar" style={navBarStyle}>
-      <div className="container-fluid p-3">
+      <div className="container-fluid p-3 d-flex justify-content-between align-items-center">
         <div className="navbar-brand" onClick={openContactLinks}>
           {activeNav === "contactLinks" ? (
             <div
@@ -40,59 +41,83 @@ export default function NavBar2() {
             />
           )}
         </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={openPageLinks}
-        >
-          <span>
-            {activeNav === "pageLinks" ? (
-              <i className="bi bi-x close-icon custom-icon-size"></i>
+        <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center justify-content-center me-3 dark-mode-icon">
+            {activeNav && isDarkMode ? (
+              <button
+                className="btn btn-dark bg-transparent dark-mode-icon"
+                onClick={toggleDarkMode}
+              >
+                <MdOutlineDarkMode size={24} />
+              </button>
             ) : (
-              <i className="bi bi-list list-icon custom-icon-size"></i>
+              activeNav && (
+                <button
+                  className="btn btn-light bg-transparent dark-mode-icon"
+                  onClick={toggleDarkMode}
+                >
+                  <MdOutlineLightMode size={24} />
+                </button>
+              )
             )}
-          </span>
-        </button>
-        <div className="navbar-collapse" id="navbarNav">
-          {activeNav === "pageLinks" && (
-            <ul className="navbar-nav nav-page nav-style fs-1">
-              <li className="nav-item">
-                <a className="nav-link" href="#about">
-                  About Me
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#skills">
-                  Skills
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#projects">
-                  Projects
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          )}
-          {activeNav === "contactLinks" && (
-            <ul className="navbar-nav nav-contact nav-style fs-1">
-              <li className="nav-item">
-                <a className="nav-link" href="#about">
-                  Email
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#skills">
-                  GitHub
-                </a>
-              </li>
-            </ul>
-          )}
+          </div>
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={openPageLinks}
+          >
+            <span>
+              {activeNav === "pageLinks" ? (
+                <i className="bi bi-x close-icon custom-icon-size"></i>
+              ) : (
+                <i className="bi bi-list list-icon custom-icon-size"></i>
+              )}
+            </span>
+          </button>
         </div>
+      </div>
+      <div
+        className={`navbar-collapse ${activeNav ? "show" : ""}`}
+        id="navbarNav"
+      >
+        {activeNav === "pageLinks" && (
+          <ul className="navbar-nav nav-page nav-style fs-1">
+            <li className="nav-item">
+              <a className="nav-link" href="#about">
+                About Me
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#skills">
+                Skills
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#projects">
+                Projects
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        )}
+        {activeNav === "contactLinks" && (
+          <ul className="navbar-nav nav-contact nav-style fs-1">
+            <li className="nav-item">
+              <a className="nav-link" href="#about">
+                Email
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#skills">
+                GitHub
+              </a>
+            </li>
+          </ul>
+        )}
       </div>
     </nav>
   );

@@ -45,14 +45,14 @@ const skills = [
   },
 ];
 
-export default function Skills() {
+export default function Skills({ isDarkMode }) {
   return (
     <IconContext.Provider value={{ size: "2em" }}>
       <section id="skills" className="py-5">
         <h2 className="pb-5">Skills</h2>
         <div className="skills-container">
           {skills.map((skill, index) => (
-            <SkillsCard key={index} skill={skill} />
+            <SkillsCard isDarkMode={isDarkMode} key={index} skill={skill} />
           ))}
         </div>
       </section>
