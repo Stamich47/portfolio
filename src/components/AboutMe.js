@@ -1,4 +1,15 @@
+import { useEffect } from "react";
+
 export default function AboutMe() {
+  useEffect(() => {
+    const aboutSection = document.getElementById("about");
+    aboutSection.style.opacity = 0;
+    aboutSection.style.transition = "opacity 2s";
+    setTimeout(() => {
+      aboutSection.style.opacity = 1;
+    }, 100);
+  }, []);
+
   return (
     <section id="about" className="container pt-5 d-flex align-items-center">
       <div className="row w-100">

@@ -15,9 +15,38 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
     setActiveNav((prev) => (prev === "contactLinks" ? null : "contactLinks"));
   };
 
+  const pageLinks = [
+    { name: "About Me", link: "#about" },
+    { name: "Skills", link: "#skills" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact", link: "#contact" },
+  ];
+
+  const contactLinks = [
+    { name: "Email", link: "mailto:mjstanford615@gmail.com" },
+    { name: "GitHub", link: "https://github.com/Stamich47" },
+  ];
+
   const navBarStyle = {
-    backgroundColor: activeNav ? "rgba(181,230,235, 0.92)" : "transparent",
+    backgroundColor: activeNav
+      ? isDarkMode
+        ? "rgba(31, 30, 30, 0.93)"
+        : "rgba(100, 122, 124, 0.92)"
+      : "transparent",
     zIndex: activeNav ? "1000" : "0",
+  };
+
+  const textStyle = {
+    color: isDarkMode ? "white" : "black",
+  };
+
+  const onMouseEnter = (e) => {
+    e.target.style.scale = "1.1";
+    e.target.style.transition = "all 0.2s ease-in-out";
+  };
+
+  const onMouseLeave = (e) => {
+    e.target.style.scale = "1";
   };
 
   return (
@@ -82,40 +111,37 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
       >
         {activeNav === "pageLinks" && (
           <ul className="navbar-nav nav-page nav-style fs-1">
-            <li className="nav-item">
-              <a className="nav-link" href="#about">
-                About Me
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#skills">
-                Skills
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#projects">
-                Projects
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">
-                Contact
-              </a>
-            </li>
+            {pageLinks.map((link, index) => (
+              <li className="nav-item" key={index}>
+                <a
+                  className="nav-link"
+                  href={link.link}
+                  style={textStyle}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         )}
+
         {activeNav === "contactLinks" && (
           <ul className="navbar-nav nav-contact nav-style fs-1">
-            <li className="nav-item">
-              <a className="nav-link" href="#about">
-                Email
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#skills">
-                GitHub
-              </a>
-            </li>
+            {contactLinks.map((link, index) => (
+              <li className="nav-item" key={index}>
+                <a
+                  className="nav-link"
+                  href={link.link}
+                  style={textStyle}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         )}
       </div>

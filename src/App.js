@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Projects from "./components/Projects";
 // import NavBar from "./components/NavBar";
 import NavBar2 from "./components/NavBar2";
@@ -11,8 +11,18 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
+    setIsDarkMode((prevMode) => {
+      localStorage.setItem("isDarkMode", JSON.stringify(!prevMode));
+      return !prevMode;
+    });
   };
+
+  useEffect(() => {
+    const isDarkMode = JSON.parse(localStorage.getItem("isDarkMode"));
+    if (isDarkMode) {
+      setIsDarkMode(isDarkMode);
+    }
+  }, []);
 
   return (
     <div className={isDarkMode ? "bg-dark text-light" : "bg-light text-dark"}>
@@ -21,7 +31,7 @@ function App() {
       <NavBar2 toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
       <Skills isDarkMode={isDarkMode} />
       <Projects isDarkMode={isDarkMode} />
-      <Footer />
+      <Footer isDarkMode={isDarkMode} />
     </div>
   );
 }

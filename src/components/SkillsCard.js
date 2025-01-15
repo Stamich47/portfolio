@@ -1,6 +1,6 @@
 export default function SkillsCard({ skill, isDarkMode }) {
   return (
-    <div>
+    <div className="card-container">
       {isDarkMode ? (
         <div
           id="skill-card"
