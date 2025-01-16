@@ -4,6 +4,7 @@ import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 
 export default function NavBar2({ isDarkMode, toggleDarkMode }) {
   const [activeNav, setActiveNav] = useState(null);
+  const [showResumeLinks, setShowResumeLinks] = useState(false);
 
   const openPageLinks = (e) => {
     e.preventDefault();
@@ -13,6 +14,7 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
   const openContactLinks = (e) => {
     e.preventDefault();
     setActiveNav((prev) => (prev === "contactLinks" ? null : "contactLinks"));
+    setShowResumeLinks(false);
   };
 
   const pageLinks = [
@@ -24,7 +26,17 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
 
   const contactLinks = [
     { name: "Email", link: "mailto:mjstanford615@gmail.com" },
-    { name: "GitHub", link: "https://github.com/Stamich47" },
+    {
+      name: "GitHub",
+      link: "https://github.com/Stamich47",
+      target: "_blank",
+      rel: "noreferrer",
+    },
+    {
+      name: "Resume",
+      link: null,
+      onResumeClick: () => setShowResumeLinks(true),
+    },
   ];
 
   const navBarStyle = {
@@ -38,15 +50,7 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
 
   const textStyle = {
     color: isDarkMode ? "white" : "black",
-  };
-
-  const onMouseEnter = (e) => {
-    e.target.style.scale = "1.1";
-    e.target.style.transition = "all 0.2s ease-in-out";
-  };
-
-  const onMouseLeave = (e) => {
-    e.target.style.scale = "1";
+    cursor: "pointer",
   };
 
   return (
@@ -117,8 +121,7 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
                   className="nav-link"
                   href={link.link}
                   style={textStyle}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
+                  onClick={() => setActiveNav(null)}
                 >
                   {link.name}
                 </a>
@@ -135,13 +138,44 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
                   className="nav-link"
                   href={link.link}
                   style={textStyle}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
+                  target="_blank"
+                  rel="noreferrer"
+                  onMouseEnter={link.onMouseEnter}
+                  onClick={(e) => {
+                    if (link.onResumeClick) {
+                      link.onResumeClick(e);
+                    } else {
+                      setActiveNav(null);
+                    }
+                  }}
                 >
                   {link.name}
                 </a>
               </li>
             ))}
+            <li>
+              {showResumeLinks && (
+                <div className="resume-links">
+                  <a
+                    className="nav-link resume-link"
+                    href="https://drive.google.com/file/d/1"
+                    style={textStyle}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Online
+                  </a>
+                  <span>|</span>
+                  <a
+                    className="nav-link res"
+                    href="https://drive.google.com/uc?export=download&id=1"
+                    style={textStyle}
+                  >
+                    Download
+                  </a>
+                </div>
+              )}
+            </li>
           </ul>
         )}
       </div>
