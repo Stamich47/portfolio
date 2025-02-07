@@ -158,7 +158,7 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
                 <div className="resume-links">
                   <a
                     className="nav-link resume-link"
-                    href="https://drive.google.com/file/d/1"
+                    href="https://drive.google.com/file/d/1dlePhOT7EeKfOxnvP88j2krak38INUMe/view?usp=sharing"
                     style={textStyle}
                     target="_blank"
                     rel="noreferrer"
@@ -168,7 +168,7 @@ export default function NavBar2({ isDarkMode, toggleDarkMode }) {
                   <span>|</span>
                   <a
                     className="nav-link res"
-                    href="https://drive.google.com/uc?export=download&id=1"
+                    href="https://drive.google.com/uc?export=download&id=1dlePhOT7EeKfOxnvP88j2krak38INUMe"
                     style={textStyle}
                   >
                     Download
